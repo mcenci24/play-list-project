@@ -1,17 +1,10 @@
-/**
- * Copyright 2026 mcenci24
- * @license Apache-2.0, see LICENSE for full text.
- */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
+import "./play-list-slide.js";
+import "./playlist-arrow.js";
+import "./playlist-indicator.js";
 
-/**
- * `play-list-project`
- * 
- * @demo index.html
- * @element play-list-project
- */
 export class PlayListProject extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
@@ -21,62 +14,125 @@ export class PlayListProject extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
+    this.index = 0;
+    this.slides = [];
+    this.t = { ...this.t, title: "Title!" };
+
     this.registerLocalization({
       context: this,
-      localesPath:
-        new URL("./locales/play-list-project.ar.json", import.meta.url).href +
-        "/../",
+      localesPath: new URL("./locales/play-list-project.ar.json", import.meta.url).href + "/../",
     });
   }
 
-  // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
       title: { type: String },
+      index: { type: Number }
     };
   }
 
-  // Lit scoped styles
   static get styles() {
-    return [super.styles,
-    css`
-      :host {
-        display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
-      }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
-      }
-      h3 span {
-        font-size: var(--play-list-project-label-font-size, var(--ddd-font-size-s));
-      }
-    `];
+    return [
+      super.styles,
+      css`
+        :host {
+          display: block;
+          background: white;
+          color: black;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+          font-family: var(--ddd-font-navigation);
+        }
+
+        .wrapper {
+          padding: 24px;
+        }
+
+        .controls {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+
+        slot {
+          display: block;
+          min-height: 120px;
+        }
+      `
+    ];
   }
 
-  // Lit render the HTML
+  _handleSlotChange(e) {
+    this.slides = e.target.assignedElements();
+    this._updateSlides();
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has("index")) {
+      this._updateSlides();
+    }
+  }
+
+  _updateSlides() {
+    if (!this.slides || this.slides.length === 0) return;
+
+    if (this.index < 0) this.index = 0;
+    if (this.index >= this.slides.length) this.index = this.slides.length - 1;
+
+    this.slides.forEach((slide, i) => {
+      slide.active = i === this.index;
+    });
+
+    this.requestUpdate();
+  }
+
+  _arrow(e) {
+    if (e.detail.direction === "left" && this.index > 0) {
+      this.index--;
+    }
+
+    if (e.detail.direction === "right" && this.index < this.slides.length - 1) {
+      this.index++;
+    }
+  }
+
+  _dotChange(e) {
+    this.index = e.detail.index;
+  }
+
   render() {
     return html`
-<div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
-</div>`;
-  }
+      <div class="wrapper">
 
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+        <div class="controls">
+
+          <playlist-arrow
+            direction="left"
+            ?disabled=${this.index === 0}
+            @playlist-arrow-click=${this._arrow}>
+          </playlist-arrow>
+
+          <playlist-indicator
+            .total=${this.slides.length}
+            .active=${this.index}
+            @play-list-index-changed=${this._dotChange}>
+          </playlist-indicator>
+
+          <playlist-arrow
+            direction="right"
+            ?disabled=${this.index === this.slides.length - 1}
+            @playlist-arrow-click=${this._arrow}>
+          </playlist-arrow>
+
+        </div>
+
+        <slot @slotchange=${this._handleSlotChange}></slot>
+
+      </div>
+    `;
   }
 }
 

@@ -22,11 +22,15 @@
     }
 
     play-list-project {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-
+  margin: 40px auto;
+  border: var(--ddd-border-md);
+  border-radius: var(--ddd-radius-lg);
+  display: block;
+  max-width: 700px;
+  width: 100%;
+  --bg-color: white;
+  --text-color: black;
+}
     play-list-project:hover {
       box-shadow: var(--ddd-boxShadow-sm);
     }
@@ -35,14 +39,6 @@
       --play-list-project-font-size: var(--ddd-font-size-l);
       background-color: var(--ddd-accent-2);
       color: var(--ddd-primary-17);
-    }
-
-    
-    play-list-project {
-      display: block;
-      width: 100%;
-      --bg-color: white;
-      --text-color: black;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -56,98 +52,65 @@
 
 <body>
   <div id="demo">
-    <h1>play-list-project</h1>
+    <h1>Playlist Component</h1>
 
-   
-    <play-list-project index="3">
-      <play-list-slide top-heading="Top line heading" second-heading="Slide 1, sub-heading">
-        <p>A whole bunch of content in here</p>
-      </play-list-slide>
-      <play-list-slide top-heading="Top line heading" second-heading="Slide 2, sub-heading">
-        <p>Some more content here</p>
-      </play-list-slide>
-      <play-list-slide top-heading="Top line heading" second-heading="Slide 3, sub-heading">
-        <p>Even more content here</p>
-      </play-list-slide>
-      <play-list-slide top-heading="Top line heading" second-heading="Slide 4, sub-heading">
-        <p>Final slide content</p>
-      </play-list-slide>
-    </play-list-project>
+    <play-list-project index="0">
 
-    <h2>Default</h2>
-    <play-list-project></play-list-project>
+  <play-list-slide top-heading="Title Header" second-heading="Slide 1, sub-heading">
+    <p>This could be an image, a whle bunch of text or anything really This could be an image, 
+      a whle bunch of text or anything really This could be an image, a whle bunch of text or anything 
+      reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of 
+      text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a 
+      whle bunch of text or anthina reallvThis could be an imaae.
+    This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+    </p>
+  </play-list-slide>
 
-    <h2>Slot usage</h2>
-    <play-list-project data-accent="2" data-primary="17">
-      <div>Sample slot content</div>
-    </play-list-project>
+  <play-list-slide top-heading="Title Header" second-heading="Slide 2, sub-heading">
+    <p>This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+    </p>
+  </play-list-slide>
 
-    <h2>Property usage</h2>
-    <play-list-project id="example" title="Sample property title"></play-list-project>
+  <play-list-slide top-heading="Title Header" second-heading="Slide 3, sub-heading">
+    <p>This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+    </p>
+  </play-list-slide>
+
+  <play-list-slide top-heading="Title Header" second-heading="Slide 4, sub-heading">
+    <p>This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+      This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything really This could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything reallyThis could be an image, a whle bunch of text or anything really
+      This could be an image, a whle bunch of text or anthina reallvThis could be an imaae.
+    </p>
+  </play-list-slide>
+
+</play-list-project>
+
   </div>
-
-  <script type="module">
-    document.querySelectorAll('play-list-project').forEach(project => {
-      project.addEventListener('click', () => {
-        const indexChange = new CustomEvent('play-list-index-changed', {
-          bubbles: true,
-          composed: true,
-          detail: { index: 0 } 
-        });
-        project.dispatchEvent(indexChange);
-      });
-
-      project.addEventListener('play-list-index-changed', e => {
-        console.log('Slide changed to index', e.detail.index);
-      });
-    });
-
-    
-    class PlayListSlide extends HTMLElement {
-      connectedCallback() {
-        this.innerHTML = `<div style="padding:8px;border:1px solid gray;margin:4px;">${this.innerHTML}</div>`;
-      }
-    }
-    customElements.define('play-list-slide', PlayListSlide);
-
-    class GalleryDots extends HTMLElement {
-      connectedCallback() {
-        this.innerHTML = `<div>Dots placeholder</div>`;
-      }
-    }
-    customElements.define('gallery-dots', GalleryDots);
-
-    class GalleryControls extends HTMLElement {
-      connectedCallback() {
-        this.innerHTML = `<div>Controls placeholder</div>`;
-      }
-    }
-    customElements.define('gallery-controls', GalleryControls);
-  </script>
 
   <script type="module" src="./play-list-project.js"></script>
 
-  <details id="follow-the-white-rabbit" open style="margin:24px;">
-    <summary>How to Develop</summary>
-    <div class="content">
-      <p>
-        <strong>Checkout project on github:</strong>
-        <a href="https://github.com/mcenci24/play-list-project" target="_blank" rel="nofollow">
-          mcenci24/play-list-project
-        </a>
-      </p>
-      <p>
-        You can edit this page in <code>index.html</code>.<br />
-        To edit your <strong>play-list-project</strong> tag, modify <code>src/play-list-project.js</code>.
-      </p>
-      <p>Web components are easy to follow once you get used to their pattern. Good luck!</p>
-      <ul>
-        <li><a href="https://haxtheweb.org/documentation/ddd" target="_blank">🧑‍🎨 Learn DDD HAX Design system</a></li>
-        <li><a href="https://lit.dev/playground/" target="_blank" rel="nofollow">🔥 Learn Lit</a></li>
-        <li><a href="https://hax.psu.edu" target="_blank">🧙 HAX The Web @ Penn State</a></li>
-      </ul>
-    </div>
-  </details>
 </body>
 
 </html>
