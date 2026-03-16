@@ -8,25 +8,42 @@ class PlaylistArrow extends LitElement {
 
   static styles = css`
     button {
-      background: black;
-      color: white;
-      border: none;
+      background: white;
+      color: #1a73e8;
+      border: 3px solid #1a73e8;
       border-radius: 50%;
-      width: 42px;
-      height: 42px;
-      font-size: 20px;
+      width: 48px;
+      height: 48px;
+      font-size: 40px;        
+      font-weight: 700;
       cursor: pointer;
       transition: 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     button:hover:not(:disabled) {
-      transform: scale(1.05);
-      background: #222;
+      background: #e8f0fe;
+      transform: translateY(-50%) scale(1.05);
     }
 
     button:disabled {
       opacity: 0.3;
       cursor: not-allowed;
+      border-color: #aaa;
+      color: #aaa;
+    }
+
+    button[direction="left"] {
+      left: -52px;
+    }
+
+    button[direction="right"] {
+      right: -186px;
     }
   `;
 
@@ -47,6 +64,7 @@ class PlaylistArrow extends LitElement {
       <button
         ?disabled=${this.disabled}
         @click=${this._click}
+        direction=${this.direction}
       >
         ${this.direction === "left" ? "‹" : "›"}
       </button>

@@ -9,7 +9,8 @@ class PlaylistIndicator extends LitElement {
   static styles = css`
     :host {
       display: flex;
-      gap: 8px;
+      gap: 16px;         
+      align-items: center;
     }
 
     span {
@@ -22,7 +23,7 @@ class PlaylistIndicator extends LitElement {
     }
 
     span.active {
-      background: #000;
+      background: #1a73e8;  
       transform: scale(1.2);
     }
   `;

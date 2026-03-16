@@ -11,7 +11,8 @@ class PlayListSlide extends LitElement {
   static styles = css`
     :host {
       display: none;
-      animation: fade 0.3s ease;
+      animation: fade 0.1s ease;
+      height:100%
     }
 
     :host([active]) {
@@ -21,7 +22,7 @@ class PlayListSlide extends LitElement {
     h3 {
   margin: 0 0 8px 0;
   font-weight: 600;
-  color: #1a73e8; 
+  color: #19539f; 
 }
 
     h4 {
@@ -31,6 +32,15 @@ class PlayListSlide extends LitElement {
   color: #18047a;
 }
 
+.sub-divider {
+  width: 68px;           
+  height: 1px;           
+  background-color: #1a73e8; 
+  margin: 40px 0 -12px 0;  
+  border-radius: 2px;    
+}
+
+
     @keyframes fade {
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
@@ -38,14 +48,15 @@ class PlayListSlide extends LitElement {
   `;
 
   render() {
-    return html`
-      <h3>${this.topHeading}</h3>
-      <h4>${this.secondHeading}</h4>
-      <playlist-description>
-        <slot></slot>
-      </playlist-description>
-    `;
-  }
+  return html`
+    <h3>${this.topHeading}</h3>
+    <h4>${this.secondHeading}</h4>
+    <div class="sub-divider"></div> 
+    <playlist-description>
+      <slot></slot>
+    </playlist-description>
+  `;
+}
 }
 
 customElements.define("play-list-slide", PlayListSlide);
